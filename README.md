@@ -17,7 +17,7 @@ Passwords must be hashed, you will need to use [bcrypt](https://www.npmjs.com/pa
 bcrypt.hash(plain_password: string, salt_rounds: number): Promise<string> // use salt_rounds = 10
 bcrypt.compare(plain_password: string, hashed_password: string): Promise<boolean>
 ```
-Create the following three functions:
+Create the following functions:
 1. `sign_up(email: string, plain_password: string, firstname?: string, lastname?: string): objectId` you will need to hash the password, save the user details in db, and return the user generated `ObjectId`.
 2. `sign_in(email: string, plain_password: string): boolean` compare the plain password with the hashed password and return true/false
 3. `create_temp_password(email: string): void` generate a new temporaty password using [Random String](https://www.npmjs.com/package/randomstring) package, hash the temp password and save it in db along with an expiration unix timestamp of 24 hours `Date.now() + 86400`, and [send the user an email](https://www.npmjs.com/package/@sendgrid/mail) with the temporary plain password.
