@@ -13,7 +13,7 @@ type User = {
 The email and password are required, and user's email is unique.
   
 The reset password workflow:
-* The user sends his email to reset his password
+* The user sends his email to reset his password.
 * The system creates a temp password and send it to the user.
 * The system hashes the temp password, save the hashed temp password in db, and creates a timestamp that expires in 24 hours.
 * The user sends his email, temp password, and new password.
