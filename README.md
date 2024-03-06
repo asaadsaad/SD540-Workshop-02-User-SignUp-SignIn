@@ -12,6 +12,13 @@ type User = {
 ```
 The email and password are required, and user's email is unique.
   
+The reset password workflow:
+* The user sends his email to reset his password
+* The system creates a temp password and send it to the user.
+* The system hashes the temp password, save the hashed temp password in db, and creates a timestamp that expires in 24 hours.
+* The user sends his email, temp password, and new password.
+* The system check if the temp password matches the hashed temp password and it has not expired yet, if all is okay, the system saves a hashed version of the new password and removes the temp password fields.
+  
 Passwords must be hashed, you will need to use [bcrypt](https://www.npmjs.com/package/bcrypt) to hash and compare hashes. The package provides the following two methods:
 ```typescript
 bcrypt.hash(plain_password: string, salt_rounds: number): Promise<string> // use salt_rounds = 10
