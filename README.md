@@ -2,12 +2,12 @@
 
 The application has a DB collection for users to sign-up and sign-in. The collection has the following structure:
 ```typescript
-type User = {
-    fullname: { first: string, last: string; },
-    email: string,
-    hashed_password: string,
-    hashed_temp_password: string,
-    temp_password_expiration_timestamp: number
+const sample_data = {
+    fullname: { first: "Asaad", last: "Saad" },
+    email: "asaad@miu.edu",
+    hashed_password: "",
+    hashed_temp_password: "",
+    temp_password_expiration_timestamp: 0
 };
 ```
 The email and password are required, and user's email is unique.
