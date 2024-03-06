@@ -2,13 +2,13 @@
 
 The application has a DB collection for users to sign-up and sign-in. The collection has the following structure:
 ```typescript
-const sample_data = {
-    fullname: { first: "Asaad", last: "Saad" },
-    email: "asaad@miu.edu",
-    hashed_password: "",
-    hashed_temp_password: "",
-    temp_password_expiration_timestamp: 0
-};
+const schema = new Schema({
+    fullname: { first: String, last: String },
+    email: { type: String, required: true, unique: true },
+    hashed_password: { type: String, required: true },
+    hashed_temp_password: String,
+    temp_password_expiration_timestamp: Number
+});
 ```
 The email and hashed_password are required, and user's email is unique.
   
