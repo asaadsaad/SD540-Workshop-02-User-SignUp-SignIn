@@ -10,7 +10,7 @@ const sample_data = {
     temp_password_expiration_timestamp: 0
 };
 ```
-The email and password are required, and user's email is unique.
+The email and hashed_password are required, and user's email is unique.
   
 Passwords must be hashed, you will need to use [bcrypt](https://www.npmjs.com/package/bcrypt) to hash and compare hashes. The package provides the following two methods:
 ```typescript
